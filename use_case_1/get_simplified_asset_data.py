@@ -47,7 +47,7 @@ def run_task(settings_file=DEFAULT_SETTINGS_FILE, debug: bool = False) -> bool:
 
         print()
 
-    return True
+    return assets
 
 
 # Main body

@@ -36,6 +36,8 @@ def run_task(settings_file=DEFAULT_SETTINGS_FILE, debug: bool = False) -> bool:
         print('Plant {}, {}:'.format(plant['plantID'], plant['plantName']))
         print('Assets:')
 
+        values_list = []
+
         # Get list of assets
         assets = client.get_asset_list(organization_id=client.organization_id, plant_id=plant['plantID'])
         if len(assets) == 0:
@@ -54,13 +56,13 @@ def run_task(settings_file=DEFAULT_SETTINGS_FILE, debug: bool = False) -> bool:
 
                     # Print measurements that contain values
                     if m['measurementValue'] is not None:
-                        print('      ' + m['measurementTypeName'].ljust(37) + ':', m['measurementValue'],
-                              '(' + m['timeStamp'] + ')')
+                        value = [m['measurementTypeName'].ljust(37) + ':' + m['measurementValue'] + '(' + m['timeStamp'] + ')' + "\n"]
+                        values_list += value
                 print()
 
         print()
 
-    return True
+    return values_list
 
 
 # Main body

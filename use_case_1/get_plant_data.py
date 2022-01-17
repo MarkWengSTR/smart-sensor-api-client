@@ -33,11 +33,13 @@ def run_task(settings_file=DEFAULT_SETTINGS_FILE, debug: bool = False) -> bool:
     plants = client.get_plant_list()
 
     # Iterate the plant list and print all assets therein
-    for plant in plants:
-        pprint(plant)
-        print()
+    # for plant in plants:
+    #     pprint(plant)
+    #     print()
 
-    return True
+    print(plants)
+
+    return plants
 
 
 # Main body

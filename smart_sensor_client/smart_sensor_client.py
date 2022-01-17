@@ -454,7 +454,7 @@ class SmartSensorClient:
     def change_kpi_threshold(self, asset_id, measurement_type, value_list):
         """Changes KPI thresholds of an asset for a specific measurement type"""
         # check if provided list is the correct length
-        if len(value_list) is not 4:
+        if len(value_list) != 4:
             print('Error: The value list had length ' + str(len(value_list)) + '. Please pass a list with 4 values which define the ranges between the health status Healthy, Weak and Critical.')
 
         content_type = 'application/json-patch+json'
